@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+</head>
+
+<body>
+    <canvas id='canvas'></canvas>
+    <script>
+        var canvas = document.querySelector('#canvas');
+        canvas.height = 900;
+        canvas.width = 900;
+        var txt = canvas.getContext('2d');
+        //lineTO 与moveTO都可以，后面为了代码的同意，可以用lineTO代替moveTO
+        // txt.moveTo(200, 200);
+
+        txt.beginPath();
+        txt.lineTo(200, 200);
+        txt.lineTo(200, 400);
+        txt.lineWidth = 4;
+        txt.strokeStyle = 'red';
+        txt.closePath();
+        txt.stroke();
+
+
+        //重新开始一段路径,关闭路径，画出闭合图形
+        txt.beginPath();
+        txt.lineTo(400, 300);
+        txt.lineTo(800, 300);
+        txt.lineTo(800, 100);
+
+        txt.strokeStyle = 'yellow';
+        txt.fillStyle = 'red';
+        
+        txt.closePath();
+
+        //填充和描边的顺序不同，最终呈现效果也不同
+        //先描边，在填充，会有一部分线宽，被填充覆盖
+        txt.fill();
+        txt.stroke();
+    </script>
+
+</body>
+
+</html>

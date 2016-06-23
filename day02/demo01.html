@@ -30,12 +30,10 @@
         txt.lineTo(400, 300);
         txt.lineTo(800, 300);
         txt.lineTo(800, 100);
-
         txt.strokeStyle = 'yellow';
         txt.fillStyle = 'red';
-        
-        txt.closePath();
 
+        txt.closePath();
         //填充和描边的顺序不同，最终呈现效果也不同
         //先描边，在填充，会有一部分线宽，被填充覆盖
         txt.fill();

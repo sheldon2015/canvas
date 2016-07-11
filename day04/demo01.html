@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>圆弧</title>
+    <style>
+        #canvas {
+            border: 10px solid black;
+            background: green
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id='canvas'></canvas>
+    <script>
+        function DrawStar(context, R, r, px, py) {
+
+            context.beginPath();
+
+            for (var i = 0; i < 5; i++) {
+                context.lineTo(
+                    px + R * Math.cos((i * 72 + 18) / 180 * Math.PI),
+                    py - R * Math.sin((i * 72 + 18) / 180 * Math.PI))
+                context.lineTo(
+                    px + r * Math.cos((i * 72 + 54) / 180 * Math.PI),
+                    py - r * Math.sin((i * 72 + 54) / 180 * Math.PI))
+            }
+            context.closePath();
+            //每次都要stroke ,fill;
+            // ctx.stroke();
+            ctx.fill();
+
+        }
+
+        var canvas = document.querySelector('#canvas');
+        canvas.height = 400;
+        canvas.width = 400;
+        var ctx = canvas.getContext('2d');
+        // ctx.strokeStyle = 'red';
+        // ctx.lineWidth = 3;
+        ctx.fillStyle = 'red';
+        var R = 100,
+            r = 50,
+            px = 200,
+            py = 200;
+
+        for (var i = 0; i < 20; i++) {
+
+            R = Math.round(15 + 10 * Math.random());//12--22
+
+            r = Math.round(5 + 10 * Math.random());//5--15
+
+            px = Math.round(400 * Math.random());
+
+            py = Math.round(400 * Math.random());
+
+            DrawStar(ctx, R, r, px, py);
+
+        }
+    </script>
+
+</body>
+
+</html>

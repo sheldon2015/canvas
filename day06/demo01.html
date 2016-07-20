@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>arcTo函数</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id='canvas'></canvas>
+    <script>
+        var canvas = document.querySelector('#canvas');
+        canvas.height = 700;
+        canvas.width = 700;
+        var ctx = canvas.getContext('2d');
+
+
+        ctx.beginPath();
+        ctx.lineTo(200, 200);
+        // 控制点400,200,  从起始点(400,200)开始画，但圆弧开始的地方，却不一定是(400,200)
+        //区分绘制起点(200, 200)，终点( 400, 900)，和切点
+        ctx.arcTo(400, 200, 400, 900, 300);
+
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = 'red';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.lineTo(100, 200);
+        ctx.lineTo(400, 200);
+        ctx.lineTo(400, 800);
+
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = 'black';
+        ctx.stroke();
+    </script>
+
+</body>
+
+</html>

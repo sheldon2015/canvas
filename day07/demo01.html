@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>添加文本</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id='canvas'></canvas>
+    <script>
+        var canvas = document.querySelector('#canvas');
+        canvas.height = 700;
+        canvas.width = 700;
+        var ctx = canvas.getContext('2d');
+        ctx.font = '700 40px aaaa';
+        ctx.fillStyle = 'red';
+        ctx.fillText('我们好啊多少级啊打交道', 350, 300);
+
+        ctx.font = '700 80px arial';
+        ctx.textAlign='center'
+        ctx.strokeStyle = 'black';
+        ctx.strokeText('我们好啊多少级啊打交道', 350, 600,400)
+    </script>
+
+</body>
+
+</html>

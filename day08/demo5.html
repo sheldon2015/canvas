@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>探照灯</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id='canvas'></canvas>
+    <script>
+        var canvas = document.querySelector('#canvas');
+        canvas.height = 700;
+        canvas.width = 700;
+        var ctx = canvas.getContext('2d');
+        var x = 0,
+            y = 0;
+        setTimeout(draw, 50);
+        var i = 1;
+        var id,
+            v=10;
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.save();
+
+            ctx.beginPath();
+            ctx.fillStyle = 'white';
+            ctx.arc(x += v, y += 2*v, 100, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.clip();
+
+            ctx.fillStyle = 'blue';
+            ctx.font = '40px yahei';
+            ctx.textAlign = 'center';
+            ctx.fillText('22222222222222222222222222222222222222222222222222', canvas.width / 2, canvas.height / 2);
+            ctx.restore();
+            id = setTimeout(function() {
+                // if (i == 5) {
+                //     clearTimeout(id);
+                //     return false;
+                // }
+                i++;
+                draw(ctx);
+            }, 50)
+        }
+    </script>
+
+</body>
+
+</html>

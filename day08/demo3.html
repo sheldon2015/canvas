@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>添加文本</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id='canvas'></canvas>
+    <script>
+        var canvas = document.querySelector('#canvas');
+        canvas.height = 700;
+        canvas.width = 700;
+        var ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        
+
+        ctx.beginPath();
+        ctx.fillStyle = 'white';
+        ctx.arc(canvas.width / 2, canvas.height / 2, 200, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.clip();
+
+
+        ctx.fillStyle = 'blue';
+        ctx.font = '40px yahei';
+        ctx.textAlign = 'center';
+        ctx.fillText('22222222222222222222222222222222222222222222222222', canvas.width / 2, canvas.height / 2)
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>canvas img</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='canvas'></canvas>
+    <script>
+        var canvas = document.querySelector('#canvas');
+        canvas.height = 700;
+        canvas.width = 700;
+        var ctx = canvas.getContext('2d');
+        var scale = 1;;
+        // var img = document.createElement('img');
+        var img = new Image();
+        img.src = './../screenshot/day04/star.png';
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width * scale, img.height * scale);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>canvas img</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='canvas'></canvas>
+
+
+    <p>文件系统</p>
+
+
+
+    <input id='file' type="file" name="" value="">
+    <img id='img' src="./../screenshot/day04/star.png" alt="">
+    <script>
+        var file_el = document.querySelector('#file');
+        var img_el = document.querySelector('#img');
+        file_el.onchange = function() {
+            console.log(a = this.files[0]);
+            img_el.src = this.value
+        }
+
+
+
+
+
+        var canvas = document.querySelector('#canvas');
+        canvas.height = 700;
+        canvas.width = 700;
+        var ctx = canvas.getContext('2d');
+        // var img = document.createElement('img');
+        var img = new Image();
+        img.src = './../screenshot/day04/star.png';
+        img.onload = function() {
+                ctx.drawImage(img, 40, 40);
+            }
+            // var img2 = new Image();
+            // img2.src = './../screenshot/day01/heigh_and_width.png';
+            // img2.onload = function() {
+            //     ctx.drawImage(img2, 350, 350);
+            // }
+    </script>
+
+</body>
+
+</html>

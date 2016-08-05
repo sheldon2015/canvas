@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>canvas img</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='canvas'></canvas>
+    <canvas id='offcanvas'></canvas>
+    <script>
+        var canvas = document.querySelector('#canvas');
+        var offcanvas = document.querySelector('#offcanvas');
+
+        var ctx = canvas.getContext('2d');
+        var offctx = offcanvas.getContext('2d');
+
+        var scale = 0.6;
+        var isMouseDown = false;
+
+
+        var img = new Image();
+        img.src = './img.png';
+        img.onload = function() {
+            offcanvas.width = img.width;
+            offcanvas.height = img.height;
+
+            canvas.width = img.width * scale;
+            canvas.height = img.height * scale;
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+            offctx.drawImage(img, 0, 0, offcanvas.width, offcanvas.height)
+        }
+
+        function pointInCanvas(e) {
+            return {
+                x: e.clientX - canvas.getBoundingClientRect().left,
+                y: e.clientY - canvas.getBoundingClientRect().top
+
+            }
+        }
+
+        canvas.onmousedown = (e) => {
+            isMouseDown = true;
+            draw(ctx, pointInCanvas(e))
+
+        }
+        canvas.onmousemove = (e) => {
+            if (isMouseDown) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                draw(ctx, pointInCanvas(e))
+
+            }
+
+        }
+        canvas.onmouseup = (e) => {
+            isMouseDown = false;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+
+        }
+        canvas.onmouseout = (e) => {
+            isMouseDown = false;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+
+        }
+
+
+        var r = 200;
+
+        function draw(ctx, point) {
+
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(point.x, point.y, r / 2, 0, Math.PI * 2);
+            ctx.clip();
+
+            var x = point.x / scale - r / 2;
+            var y = point.y / scale - r / 2;
+
+            //ctx.drawImage(canvas,sx,sy,swidth,sheight,dx,dy,dwidth,dheight)
+            ctx.drawImage(offcanvas, x, y, r, r, point.x - r / 2, point.y - r / 2, r, r)
+
+
+            ctx.restore()
+
+
+        }
+    </script>
+
+</body>
+
+</html>

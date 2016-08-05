@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>非零环绕原则</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id='canvas'></canvas>
+    <script>
+        var canvas = document.querySelector('#canvas');
+        canvas.height = 700;
+        canvas.width = 700;
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'blue';
+        //非零环绕原则，确定哪个是外边,路径方向会影响判断
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, 200, 0, 2 * Math.PI);
+        ctx.arc(canvas.width / 2, canvas.height / 2, 150, 0, 2 * Math.PI, true);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'black';
+        ctx.arc(canvas.width / 2, canvas.height / 2, 200, 0, .5 * Math.PI);
+        ctx.arc(canvas.width / 2, canvas.height / 2, 150, .5 * Math.PI, 2 * Math.PI, true);
+        ctx.closePath();
+        ctx.fill();
+    </script>
+
+</body>
+
+</html>

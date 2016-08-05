@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> isPointInPath 接口函数</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id='canvas'>
+        当浏览器不支持时显示
+    </canvas>
+    <script>
+        var canvas = document.querySelector('#canvas');
+        canvas.height = 700;
+        canvas.width = 700;
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'red';
+        ctx.arc(canvas.width / 2, canvas.height / 2, 200, 0, 2 * Math.PI);
+        ctx.fill();
+
+        canvas.addEventListener('mousemove', function(e) {
+
+            var x = e.clientX - canvas.getBoundingClientRect().left;
+            var y = e.clientY - canvas.getBoundingClientRect().top;
+            if (ctx.isPointInPath(x, y)) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'blue';
+                ctx.arc(canvas.width / 2, canvas.height / 2, 200, 0, 2 * Math.PI);
+                ctx.fill();
+            } else {
+                ctx.fillStyle = 'red';
+                ctx.arc(canvas.width / 2, canvas.height / 2, 200, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+
+
+
+        })
+    </script>
+
+</body>
+
+</html>

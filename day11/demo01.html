@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>canvas img</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='canvas'></canvas>
+    <canvas id='offcanvas'></canvas>
+    <script>
+        var canvas = document.querySelector('#canvas');
+        var offcanvas = document.querySelector('#offcanvas');
+
+        var ctx = canvas.getContext('2d');
+        var offctx = offcanvas.getContext('2d');
+        var img = new Image();
+        img.src = './img.png';
+        img.onload = function() {
+
+            canvas.width = img.width * 0.5;
+            canvas.height = img.height * 0.5;
+            offcanvas.width = img.width * 0.5;
+            offcanvas.height = img.height * 0.5;
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            var pixelData = imageData.data;
+            for (var i = 0; i < pixelData.length; i++) {
+                // pixelData[4 * i + 0] = 255;
+                // pixelData[4 * i + 1] = 90;
+                pixelData[4 * i + 2] = 80;
+                pixelData[4 * i + 3] = 200;
+
+            }
+
+            offctx.putImageData(imageData, 0, 0, 0, 0, offcanvas.width, offcanvas.height);
+
+
+        }
+    </script>
+
+</body>
+
+</html>

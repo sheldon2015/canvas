@@ -12,6 +12,8 @@
 
        (见screenshot中的heigh_and_width.png中两种设置的的异同)
 
+   
+
 ## day02
 
     1. 画直线 beginPath() closePath() strokeStyle属性 fillStyle属性 lineWidth属性
@@ -21,9 +23,42 @@
     3. linecap 和linejoin 的几个属性值
 
     4. canvas图形(矩阵)变换 transform rotate scale，图形变换过程中状态函数 save()保存当前状态，restore()恢复之前的状态
+
 ## day03
 
     1. 画弧度  ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise)，startAngle, endAngle为弧度
 
     2. arTo(x1,y1,x2,y2,radius)    当前端点不是弧线起点(x1,y1)，arcTo()方法还将添加一条当前端点到弧线起点的直线线段。
+
+
+
+## day04  
+
+    1.线性渐变和径向渐变
+
+## day06
+
+    1. quadraticCurveTo 二次bezel曲线   bezeirCurveTo 三次bezel曲线
+ 
+## day08
+
+    1. clip()
+
+    2. 非零环绕原则，确定哪个是外边,路径方向的定义会影响判断外边和里边
+
+    3. explorecanvas 垫片提供兼容性保障
+
+    4. canvas图形库
+
+    5. 绚丽的倒计时算法
+
+## day09
+
+    1. drawImage()   getImageData   putImageData  createImageData  API
+
+    2.   模糊   马赛克算法
+
+
+ 
+
 

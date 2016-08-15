@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>时钟特效</title>
+
+</head>
+
+<body>
+    <div id="myclock"></div>
+    <script type="text/javascript">
+        var timer;
+
+        function disptime() {
+            var today = new Date(); //获得当前时间
+            var hh = today.getHours(); //获得小时、分钟、秒
+            var mm = today.getMinutes();
+            var ss = today.getSeconds();
+            document.getElementById("myclock").innerHTML = "<h1>现在是：" + hh + ":" + mm + ":" + ss + "<h1>";
+            var timer = setTimeout("disptime()", 1000);
+
+        }
+
+        disptime()
+
+        // function interval() {
+        //     timer = setInterval("disptime()", 1000);
+        // }
+        // interval()
+    </script>
+</body>
+
+</html>

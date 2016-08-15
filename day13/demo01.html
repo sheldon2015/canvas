@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> canvas边界检测 </title>
+</head>
+
+<body>
+
+    <canvas height="500" width='500' id="canvas" style="display:block;margin:0 auto;border:1px solid #aaa;"> 您的浏览器尚不支持canvas
+    </canvas>
+
+    <!--<script src='./ball.js'></script>
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+
+            var ball = new Ball(20, "red");
+            ball.x = canvas.width / 2
+            ball.y = canvas.height / 2 - 200;
+
+            var vy = 0, //初始速度
+                gravity = 0.2, //定义重力加速度
+                bounce = -0.8; //定义反弹系数
+
+            //碰撞检测
+            function checkGround(ball) {
+                if (ball.y + ball.radius > canvas.height) {
+                    ball.y = canvas.height - ball.radius;
+                    vy *= bounce; //速度反向并且减小
+                }
+            }
+
+
+            (
+                function drawFramw() {
+                    window.requestAnimationFrame(drawFramw);
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+
+                    vy += gravity;
+                    ball.y += vy;
+
+                    //碰撞检测
+                    checkGround(ball);
+                    ball.draw(context);
+                }()
+            );
+        }
+    </script>-->
+
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        var x = canvas.width / 2;
+        var y = canvas.height / 2 - 200;
+
+        var g = 0.2; //加速度
+        var vy = 0; //速度
+        var radius = 20;
+        var bounce = -0.8; //定义反弹系数
+
+        //碰撞检测
+        function checkGround(ly, radius) {
+
+            if (ly + radius > canvas.height) {
+                console.log('enter')
+
+                y = canvas.height - radius;
+                vy *= bounce; //速度反向并且减小
+
+            }
+        }
+
+        function _draw() {
+            context.save();
+            context.fillStyle = 'red';
+            context.lineWidth = 1;
+            context.strokeStyle = 'red';
+            context.translate(x, y); //运用变换
+            context.beginPath();
+            context.arc(0, 0, radius, 0, 2 * Math.PI, false);
+            context.closePath();
+            context.fill();
+            context.stroke();
+            context.restore();
+        }
+
+
+
+        (
+            function drawFrame() {
+                requestAnimationFrame(arguments.callee);
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                vy += g;
+                y += vy;
+
+                checkGround(y, radius);
+
+                _draw();
+            }
+        )()
+    </script>
+
+</body>
+
+</html>

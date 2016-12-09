@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        #canvas,
-        #canvas2 {
-            border: 10px solid black;
-            background: red
-        }
-        
-        #canvas2 {
-            height: 400px;
-            width: 400px;
-        }
+    #canvas,
+    #canvas2 {
+        border: 10px solid black;
+        background: red
+    }
+    
+    #canvas2 {
+        height: 400px;
+        width: 400px;
+    }
     </style>
 </head>
 
@@ -22,24 +22,24 @@
     <canvas id='canvas' height="400" width="400"></canvas>
     <canvas id='canvas2'></canvas>
     <script>
-        //canvas1
-        var canvas = document.querySelector("#canvas");
-        var cxt = canvas.getContext('2d');
+    //canvas1
+    var canvas = document.querySelector("#canvas");
+    var cxt = canvas.getContext('2d');
 
-        cxt.lineWidth = 5;
-        cxt.strokeColor = 'black';
-        cxt.lineTo(100, 10);
-        cxt.lineTo(10, 500);
-        cxt.stroke();
+    cxt.lineWidth = 5;
+    cxt.strokeColor = 'black';
+    cxt.lineTo(100, 10);
+    cxt.lineTo(10, 500);
+    cxt.stroke();
 
-        //canvas2
-        var canvas2 = document.querySelector("#canvas2");
-        var cxt2 = canvas2.getContext('2d');
-        cxt2.lineWidth = 5;
-        cxt2.strokeColor = 'black';
-        cxt2.lineTo(100, 10);
-        cxt2.lineTo(10, 500);
-        cxt2.stroke();
+    //canvas2
+    var canvas2 = document.querySelector("#canvas2");
+    var cxt2 = canvas2.getContext('2d');
+    cxt2.lineWidth = 5;
+    cxt2.strokeColor = 'black';
+    cxt2.lineTo(100, 10);
+    cxt2.lineTo(10, 500);
+    cxt2.stroke();
     </script>
 </body>
 

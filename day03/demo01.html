@@ -5,61 +5,59 @@
     <meta charset="UTF-8">
     <title>圆弧</title>
     <style>
-        #canvas {
-            border: 10px solid black;
-            background: red
-        }
+    #canvas {
+        border: 10px solid black;
+        background: red
+    }
     </style>
 </head>
 
 <body>
-
     <canvas id='canvas'></canvas>
     <script>
-        var canvas = document.querySelector('#canvas');
-        canvas.height = 400;
-        canvas.width = 400;
-        var ctx = canvas.getContext('2d');
+    var canvas = document.querySelector('#canvas');
+    canvas.height = 400;
+    canvas.width = 400;
+    var ctx = canvas.getContext('2d');
 
-        ctx.lineWidth = 5;
-        //角度转换为弧度   (Math.PI / 180) * xx
-        // ctx.beginPath();
-        // ctx.arc(100, 100, 50, 0, (Math.PI / 180) * 90, true);
-        // ctx.closePath();
-        // ctx.stroke();
-        // ctx.beginPath();
-        // ctx.lineTo(50, 50);
-        // ctx.lineTo(400, 50);
-        // ctx.closePath();
-        // ctx.stroke();
-
-
-
-        // ctx.beginPath();
-        // ctx.lineTo(200, 50);
-        // ctx.lineTo(200, 400);
-        // ctx.closePath();
-        // ctx.stroke();
+    ctx.lineWidth = 5;
+    //角度转换为弧度   (Math.PI / 180) * xx
+    // ctx.beginPath();
+    // ctx.arc(100, 100, 50, 0, (Math.PI / 180) * 90, true);
+    // ctx.closePath();
+    // ctx.stroke();
+    // ctx.beginPath();
+    // ctx.lineTo(50, 50);
+    // ctx.lineTo(400, 50);
+    // ctx.closePath();
+    // ctx.stroke();
 
 
 
-        ctx.beginPath();
-        ctx.strokeStyle = 'black';
-        ctx.lineTo(50, 50);
-        ctx.lineTo(150, 50);
-        ctx.arcTo(200, 50, 200, 500, 50);
-        ctx.closePath();
-        ctx.stroke();
+    // ctx.beginPath();
+    // ctx.lineTo(200, 50);
+    // ctx.lineTo(200, 400);
+    // ctx.closePath();
+    // ctx.stroke();
 
 
-        ctx.beginPath();
-        ctx.strokeStyle = 'rgba(255, 235, 59, 0.33)';
-        ctx.lineTo(50, 50);
-        ctx.arcTo(200, 50, 200, 500, 50);
-        ctx.closePath();
-        ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = 'black';
+    ctx.lineTo(50, 50);
+    ctx.lineTo(150, 50);
+    ctx.arcTo(200, 50, 200, 500, 50);
+    ctx.closePath();
+    ctx.stroke();
+
+
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(255, 235, 59, 0.33)';
+    ctx.lineTo(50, 50);
+    ctx.arcTo(200, 50, 200, 500, 50);
+    ctx.closePath();
+    ctx.stroke();
     </script>
-
 </body>
 
 </html>

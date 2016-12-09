@@ -5,90 +5,86 @@
     <meta charset="UTF-8">
     <title>圆弧</title>
     <style>
-        #canvas {
-            border: 10px solid black;
-            background: green
-        }
+    #canvas {
+        border: 10px solid black;
+        background: green
+    }
     </style>
 </head>
 
 <body>
     <canvas id='canvas'></canvas>
     <script>
-        var canvas = document.querySelector('#canvas');
-        canvas.height = 400;
-        canvas.width = 400;
-        var ctx = canvas.getContext('2d');
-        // ctx.strokeStyle = 'red';
-        // ctx.lineWidth = 3;
-        ctx.fillStyle = 'red';
-        var R,
-            r,
-            px,
-            py,
-            rotate;
+    var canvas = document.querySelector('#canvas');
+    canvas.height = 400;
+    canvas.width = 400;
+    var ctx = canvas.getContext('2d');
+    // ctx.strokeStyle = 'red';
+    // ctx.lineWidth = 3;
+    ctx.fillStyle = 'red';
+    var R,
+        r,
+        px,
+        py,
+        rotate;
 
-        // setInterval(function() {
+    // setInterval(function() {
 
-        //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        //     for (var i = 0; i < 20; i++) {
+    //     for (var i = 0; i < 20; i++) {
 
-        //         R = Math.round(15 + 10 * Math.random()); //12--22
+    //         R = Math.round(15 + 10 * Math.random()); //12--22
 
-        //         r = Math.round(5 + 10 * Math.random()); //5--15
+    //         r = Math.round(5 + 10 * Math.random()); //5--15
 
-        //         px = Math.round(400 * Math.random());
+    //         px = Math.round(400 * Math.random());
 
-        //         py = Math.round(400 * Math.random());
+    //         py = Math.round(400 * Math.random());
 
-        //         DrawStar(ctx, R, r, px, py);
+    //         DrawStar(ctx, R, r, px, py);
 
-        //     }
-        // }, 500)
-
-
-        function Step() {
+    //     }
+    // }, 500)
 
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (var i = 0; i < 50; i++) {
-
-                R = Math.round(15 + 10 * Math.random()); //12--22
-
-                r = Math.round(5 + 10 * Math.random()); //5--15
-
-                px = Math.round(400 * Math.random());
-
-                py = Math.round(400 * Math.random());
-
-                rotate = Math.round(360 * Math.random());
-
-                //边界判断，不让星星超出画布
-
-                if (R < px && R < py && R + px < canvas.width && R + py < canvas.height) {
-
-                    DrawStar(ctx, R, R / 2, px, py, rotate);
-
-                }
+    function Step() {
 
 
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (var i = 0; i < 50; i++) {
+
+            R = Math.round(15 + 10 * Math.random()); //12--22
+
+            r = Math.round(5 + 10 * Math.random()); //5--15
+
+            px = Math.round(400 * Math.random());
+
+            py = Math.round(400 * Math.random());
+
+            rotate = Math.round(360 * Math.random());
+
+            //边界判断，不让星星超出画布
+
+            if (R < px && R < py && R + px < canvas.width && R + py < canvas.height) {
+                DrawStar(ctx, R, R / 2, px, py, rotate);
             }
-
-            // requestAnimationFrame(arguments.callee)
-
 
 
         }
 
-        Step();
+        // requestAnimationFrame(arguments.callee)
 
 
-        // requestAnimationFrame(Step)
+
+    }
+
+    Step();
+
+
+    // requestAnimationFrame(Step)
     </script>
-
-
     }
     </script>
 </body>
